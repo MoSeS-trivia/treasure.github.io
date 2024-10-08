@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click the Tower</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        img {
+            cursor: pointer;
+            width: 200px;
+            height: auto;
+            transition: opacity 2s ease; /* For fade-out effect */
+        }
+        #link {
+            display: none;
+            margin-top: 20px;
+        }
+        a {
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function revealLink() {
+            try {
+                const towerImage = document.getElementById("towerImage");
+                towerImage.style.opacity = 0; // Fade out the image
+                setTimeout(function() {
+                    towerImage.style.display = "none"; // Hide the image after the fade
+                    document.getElementById("link").style.display = "block"; // Show the link
+                }, 2000); // Wait for 2 seconds for the fade to complete
+            } catch (error) {
+                console.error("An error occurred: ", error.message); // Handle errors gracefully
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Click the Tower to Reveal a Link</h1>
+
+    <!-- Image of the tower -->
+    <img id="towerImage" src="https://ibb.co/dtNbwym" 
+    alt="Tower" onclick="revealLink()">
+
+    <!-- Hidden link that will be revealed when image is clicked -->
+    <div id="link">
+        <a href="https://example.com" target="_blank">Click here to visit the link</a>
+    </div>
+
+</body>
+</html>
